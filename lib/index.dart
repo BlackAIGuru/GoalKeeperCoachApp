@@ -7,4 +7,16 @@ export '/authentication/onboard/onboard_widget.dart' show OnboardWidget;
 export '/coach/menu/menu_widget.dart' show MenuWidget;
 export '/coach/home/home_widget.dart' show HomeWidget;
 export '/coach/all_students/all_students_widget.dart' show AllStudentsWidget;
-export '/coach/profile/profile_widget.dart' show ProfileWidget;
+export '/coach/player_profile/player_profile_widget.dart'
+    show PlayerProfileWidget;
+export '/coach/emergency_contact/emergency_contact_widget.dart'
+    show EmergencyContactWidget;
+export '/coach/feedback/feedback_widget.dart' show FeedbackWidget;
+export '/coach/reflections_template/reflections_template_widget.dart'
+    show ReflectionsTemplateWidget;
+export '/coach/upload_media/upload_media_widget.dart' show UploadMediaWidget;
+export '/authentication/profiel/profiel_widget.dart' show ProfielWidget;
+export '/coach/development_plan/development_plan_widget.dart'
+    show DevelopmentPlanWidget;
+export '/coach/current_plans/current_plans_widget.dart' show CurrentPlansWidget;
+export '/coach/create_plan/create_plan_widget.dart' show CreatePlanWidget;

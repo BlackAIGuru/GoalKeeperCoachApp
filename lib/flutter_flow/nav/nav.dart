@@ -72,11 +72,52 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const AllStudentsWidget(),
         ),
         FFRoute(
-          name: 'Profile',
-          path: '/profile',
-          builder: (context, params) => const ProfileWidget(),
+          name: 'PlayerProfile',
+          path: '/playerProfile',
+          builder: (context, params) => const PlayerProfileWidget(),
+        ),
+        FFRoute(
+          name: 'EmergencyContact',
+          path: '/emergencyContact',
+          builder: (context, params) => const EmergencyContactWidget(),
+        ),
+        FFRoute(
+          name: 'Feedback',
+          path: '/feedback',
+          builder: (context, params) => const FeedbackWidget(),
+        ),
+        FFRoute(
+          name: 'ReflectionsTemplate',
+          path: '/reflectionsTemplate',
+          builder: (context, params) => const ReflectionsTemplateWidget(),
+        ),
+        FFRoute(
+          name: 'UploadMedia',
+          path: '/uploadMedia',
+          builder: (context, params) => const UploadMediaWidget(),
+        ),
+        FFRoute(
+          name: 'Profiel',
+          path: '/profiel',
+          builder: (context, params) => const ProfielWidget(),
+        ),
+        FFRoute(
+          name: 'DevelopmentPlan',
+          path: '/developmentPlan',
+          builder: (context, params) => const DevelopmentPlanWidget(),
+        ),
+        FFRoute(
+          name: 'CurrentPlans',
+          path: '/currentPlans',
+          builder: (context, params) => const CurrentPlansWidget(),
+        ),
+        FFRoute(
+          name: 'CreatePlan',
+          path: '/createPlan',
+          builder: (context, params) => const CreatePlanWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {

@@ -94,7 +94,7 @@ class _HomeWidgetState extends State<HomeWidget> {
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
             child: Container(
               width: double.infinity,
               height: double.infinity,
@@ -125,31 +125,37 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
-                                child: Stack(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(15.0),
-                                      child: SvgPicture.asset(
-                                        'assets/images/background.svg',
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        fit: BoxFit.contain,
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
-                                      child: ClipRRect(
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  child: Stack(
+                                    children: [
+                                      ClipRRect(
                                         borderRadius:
-                                            BorderRadius.circular(8.0),
+                                            BorderRadius.circular(15.0),
                                         child: SvgPicture.asset(
-                                          'assets/images/Vector.svg',
-                                          width: 40.0,
-                                          height: 40.0,
+                                          'assets/images/background.svg',
+                                          width: double.infinity,
+                                          height: double.infinity,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, 0.0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: SvgPicture.asset(
+                                            'assets/images/Vector.svg',
+                                            width: 40.0,
+                                            height: 40.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                               Text(
@@ -189,7 +195,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         'assets/images/background.svg',
                                         width: double.infinity,
                                         height: double.infinity,
-                                        fit: BoxFit.contain,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                     Align(
@@ -251,7 +257,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         'assets/images/background.svg',
                                         width: double.infinity,
                                         height: double.infinity,
-                                        fit: BoxFit.contain,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                     Align(
@@ -307,7 +313,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         'assets/images/background.svg',
                                         width: double.infinity,
                                         height: double.infinity,
-                                        fit: BoxFit.contain,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                     Align(
@@ -369,7 +375,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         'assets/images/background.svg',
                                         width: double.infinity,
                                         height: double.infinity,
-                                        fit: BoxFit.contain,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                     Align(
@@ -441,7 +447,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         'assets/images/background.svg',
                                         width: double.infinity,
                                         height: double.infinity,
-                                        fit: BoxFit.contain,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                     Align(
