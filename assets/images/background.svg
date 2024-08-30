@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="51.886 164.163 111 109.174" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paint0_linear_36_6723" x1="0.5" y1="54.7608" x2="111.468" y2="54.7608" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1, 0, 0, 1, 51.386364, 163.989044)">
+      <stop stop-color="#DBA529"/>
+      <stop offset="1" stop-color="#DBA529"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear_36_6723" x1="87.76" y1="0.173985" x2="87.76" y2="109.348" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1, 0, 0, 1, 51.386364, 163.989044)">
+      <stop stop-color="#050505" stop-opacity="0.12"/>
+      <stop offset="0.9635" stop-color="#050D30" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="51.886" y="164.163" width="110.968" height="109.174" rx="15.05" fill="url(#paint0_linear_36_6723)" transform="matrix(1, 0, 0, 1, -7.105427357601002e-15, 0)"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M 118.975 273.337 L 151.599 273.337 C 157.833 273.337 162.886 268.283 162.886 262.05 L 162.886 175.45 C 162.886 169.216 157.833 164.163 151.599 164.163 L 91.002 164.163 L 118.975 273.337 Z" fill="url(#paint1_linear_36_6723)" fill-opacity="0.7" transform="matrix(1, 0, 0, 1, -7.105427357601002e-15, 0)"/>
+</svg>
