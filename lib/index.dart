@@ -19,4 +19,6 @@ export '/authentication/profiel/profiel_widget.dart' show ProfielWidget;
 export '/coach/development_plan/development_plan_widget.dart'
     show DevelopmentPlanWidget;
 export '/coach/current_plans/current_plans_widget.dart' show CurrentPlansWidget;
-export '/coach/create_plan/create_plan_widget.dart' show CreatePlanWidget;
+export '/coach/create_plan_1/create_plan1_widget.dart' show CreatePlan1Widget;
+export '/coach/create_plan_2/create_plan2_widget.dart' show CreatePlan2Widget;
+export '/coach/notification/notification_widget.dart' show NotificationWidget;

@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'create_plan_widget.dart' show CreatePlanWidget;
+import 'create_plan1_widget.dart' show CreatePlan1Widget;
 import 'package:flutter/material.dart';
 
-class CreatePlanModel extends FlutterFlowModel<CreatePlanWidget> {
+class CreatePlan1Model extends FlutterFlowModel<CreatePlan1Widget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

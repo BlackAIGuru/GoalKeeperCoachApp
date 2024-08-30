@@ -112,9 +112,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CurrentPlansWidget(),
         ),
         FFRoute(
-          name: 'CreatePlan',
-          path: '/createPlan',
-          builder: (context, params) => const CreatePlanWidget(),
+          name: 'CreatePlan_1',
+          path: '/createPlan1',
+          builder: (context, params) => const CreatePlan1Widget(),
+        ),
+        FFRoute(
+          name: 'CreatePlan_2',
+          path: '/createPlan2',
+          builder: (context, params) => const CreatePlan2Widget(),
+        ),
+        FFRoute(
+          name: 'Notification',
+          path: '/notification',
+          builder: (context, params) => const NotificationWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

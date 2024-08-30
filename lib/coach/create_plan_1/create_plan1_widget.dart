@@ -4,25 +4,25 @@ import 'dart:ui';
 import 'package:sticky_headers/sticky_headers.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'create_plan_model.dart';
-export 'create_plan_model.dart';
+import 'create_plan1_model.dart';
+export 'create_plan1_model.dart';
 
-class CreatePlanWidget extends StatefulWidget {
-  const CreatePlanWidget({super.key});
+class CreatePlan1Widget extends StatefulWidget {
+  const CreatePlan1Widget({super.key});
 
   @override
-  State<CreatePlanWidget> createState() => _CreatePlanWidgetState();
+  State<CreatePlan1Widget> createState() => _CreatePlan1WidgetState();
 }
 
-class _CreatePlanWidgetState extends State<CreatePlanWidget> {
-  late CreatePlanModel _model;
+class _CreatePlan1WidgetState extends State<CreatePlan1Widget> {
+  late CreatePlan1Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreatePlanModel());
+    _model = createModel(context, () => CreatePlan1Model());
   }
 
   @override
