@@ -47,8 +47,8 @@ class _StudentsWidgetState extends State<StudentsWidget> {
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
           ),
-          child: Image.network(
-            'https://picsum.photos/seed/461/600',
+          child: Image.asset(
+            'assets/images/goal_keeper.png',
             fit: BoxFit.cover,
           ),
         ),

@@ -170,8 +170,8 @@ class _CurrentPlansWidgetState extends State<CurrentPlansWidget> {
                                           decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
-                                          child: Image.network(
-                                            'https://picsum.photos/seed/987/600',
+                                          child: Image.asset(
+                                            'assets/images/goal_keeper.png',
                                             fit: BoxFit.cover,
                                           ),
                                         ),

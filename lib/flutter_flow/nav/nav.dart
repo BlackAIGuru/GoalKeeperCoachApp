@@ -125,6 +125,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Notification',
           path: '/notification',
           builder: (context, params) => const NotificationWidget(),
+        ),
+        FFRoute(
+          name: 'Message',
+          path: '/message',
+          builder: (context, params) => const MessageWidget(),
+        ),
+        FFRoute(
+          name: 'TrainingSessions',
+          path: '/trainingSessions',
+          builder: (context, params) => const TrainingSessionsWidget(),
+        ),
+        FFRoute(
+          name: 'TrainingSessionsDetail',
+          path: '/trainingSessionsDetail',
+          builder: (context, params) => const TrainingSessionsDetailWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

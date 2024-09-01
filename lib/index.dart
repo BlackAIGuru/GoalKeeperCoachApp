@@ -22,3 +22,8 @@ export '/coach/current_plans/current_plans_widget.dart' show CurrentPlansWidget;
 export '/coach/create_plan_1/create_plan1_widget.dart' show CreatePlan1Widget;
 export '/coach/create_plan_2/create_plan2_widget.dart' show CreatePlan2Widget;
 export '/coach/notification/notification_widget.dart' show NotificationWidget;
+export '/coach/message/message_widget.dart' show MessageWidget;
+export '/coach/training_sessions/training_sessions_widget.dart'
+    show TrainingSessionsWidget;
+export '/coach/training_sessions_detail/training_sessions_detail_widget.dart'
+    show TrainingSessionsDetailWidget;
