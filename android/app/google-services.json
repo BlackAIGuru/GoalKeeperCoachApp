@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "209956386138",
+    "project_id": "creative-keepers-4df8d",
+    "storage_bucket": "creative-keepers-4df8d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209956386138:android:594b6c1591beffe5eeaf63",
+        "android_client_info": {
+          "package_name": "com.mycompany.creativekeepers"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4Bragy8Z3jLA-IgJeOFc8GoLHY-XwyIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

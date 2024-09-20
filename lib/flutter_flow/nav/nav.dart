@@ -3,7 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '/auth/base_auth_user_provider.dart';
+
 import '/index.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -17,7 +20,46 @@ class AppStateNotifier extends ChangeNotifier {
   static AppStateNotifier? _instance;
   static AppStateNotifier get instance => _instance ??= AppStateNotifier._();
 
+  BaseAuthUser? initialUser;
+  BaseAuthUser? user;
   bool showSplashImage = true;
+  String? _redirectLocation;
+
+  /// Determines whether the app will refresh and build again when a sign
+  /// in or sign out happens. This is useful when the app is launched or
+  /// on an unexpected logout. However, this must be turned off when we
+  /// intend to sign in/out and then navigate or perform any actions after.
+  /// Otherwise, this will trigger a refresh and interrupt the action(s).
+  bool notifyOnAuthChange = true;
+
+  bool get loading => user == null || showSplashImage;
+  bool get loggedIn => user?.loggedIn ?? false;
+  bool get initiallyLoggedIn => initialUser?.loggedIn ?? false;
+  bool get shouldRedirect => loggedIn && _redirectLocation != null;
+
+  String getRedirectLocation() => _redirectLocation!;
+  bool hasRedirect() => _redirectLocation != null;
+  void setRedirectLocationIfUnset(String loc) => _redirectLocation ??= loc;
+  void clearRedirectLocation() => _redirectLocation = null;
+
+  /// Mark as not needing to notify on a sign in / out when we intend
+  /// to perform subsequent actions (such as navigation) afterwards.
+  void updateNotifyOnAuthChange(bool notify) => notifyOnAuthChange = notify;
+
+  void update(BaseAuthUser newUser) {
+    final shouldUpdate =
+        user?.uid == null || newUser.uid == null || user?.uid != newUser.uid;
+    initialUser ??= newUser;
+    user = newUser;
+    // Refresh the app on auth change unless explicitly marked otherwise.
+    // No need to update unless the user has changed.
+    if (notifyOnAuthChange && shouldUpdate) {
+      notifyListeners();
+    }
+    // Once again mark the notifier as needing to update on auth change
+    // (in order to catch sign in / out events).
+    updateNotifyOnAuthChange(true);
+  }
 
   void stopShowingSplashImage() {
     showSplashImage = false;
@@ -29,12 +71,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => const SignInWidget(),
+      errorBuilder: (context, state) =>
+          appStateNotifier.loggedIn ? const MenuCoachWidget() : const SignInWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const SignInWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? const MenuCoachWidget() : const SignInWidget(),
         ),
         FFRoute(
           name: 'SignIn',
@@ -57,14 +101,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const OnboardWidget(),
         ),
         FFRoute(
-          name: 'Menu',
-          path: '/menu',
-          builder: (context, params) => const MenuWidget(),
+          name: 'Menu_Coach',
+          path: '/menuCoach',
+          builder: (context, params) => const MenuCoachWidget(),
         ),
         FFRoute(
-          name: 'Home',
-          path: '/home',
-          builder: (context, params) => const HomeWidget(),
+          name: 'Home_Coach',
+          path: '/homeCoach',
+          builder: (context, params) => const HomeCoachWidget(),
         ),
         FFRoute(
           name: 'AllStudents',
@@ -82,9 +126,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const EmergencyContactWidget(),
         ),
         FFRoute(
-          name: 'Feedback',
-          path: '/feedback',
-          builder: (context, params) => const FeedbackWidget(),
+          name: 'Feedback_Coach',
+          path: '/feedbackCoach',
+          builder: (context, params) => const FeedbackCoachWidget(),
         ),
         FFRoute(
           name: 'ReflectionsTemplate',
@@ -97,9 +141,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const UploadMediaWidget(),
         ),
         FFRoute(
-          name: 'Profiel',
-          path: '/profiel',
-          builder: (context, params) => const ProfielWidget(),
+          name: 'CoachProfile',
+          path: '/coachProfile',
+          builder: (context, params) => const CoachProfileWidget(),
         ),
         FFRoute(
           name: 'DevelopmentPlan',
@@ -137,9 +181,99 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const TrainingSessionsWidget(),
         ),
         FFRoute(
-          name: 'TrainingSessionsDetail',
-          path: '/trainingSessionsDetail',
-          builder: (context, params) => const TrainingSessionsDetailWidget(),
+          name: 'TrainingSessionsProgress',
+          path: '/trainingSessionsProgress',
+          builder: (context, params) => const TrainingSessionsProgressWidget(),
+        ),
+        FFRoute(
+          name: 'TrainingSessionsCompleted',
+          path: '/trainingSessionsCompleted',
+          builder: (context, params) => const TrainingSessionsCompletedWidget(),
+        ),
+        FFRoute(
+          name: 'FeedbackRapid',
+          path: '/feedbackRapid',
+          builder: (context, params) => const FeedbackRapidWidget(),
+        ),
+        FFRoute(
+          name: 'FeedbackEdit',
+          path: '/feedbackEdit',
+          builder: (context, params) => const FeedbackEditWidget(),
+        ),
+        FFRoute(
+          name: 'Stickers',
+          path: '/stickers',
+          builder: (context, params) => const StickersWidget(),
+        ),
+        FFRoute(
+          name: 'DailyDetails',
+          path: '/dailyDetails',
+          builder: (context, params) => const DailyDetailsWidget(),
+        ),
+        FFRoute(
+          name: 'Home_Player',
+          path: '/homePlayer',
+          builder: (context, params) => const HomePlayerWidget(),
+        ),
+        FFRoute(
+          name: 'MyTraining',
+          path: '/myTraining',
+          builder: (context, params) => const MyTrainingWidget(),
+        ),
+        FFRoute(
+          name: 'AllClasses',
+          path: '/allClasses',
+          builder: (context, params) => const AllClassesWidget(),
+        ),
+        FFRoute(
+          name: 'AllDevelopmentPlans',
+          path: '/allDevelopmentPlans',
+          builder: (context, params) => const AllDevelopmentPlansWidget(),
+        ),
+        FFRoute(
+          name: 'DevelopmentPlanDetail',
+          path: '/developmentPlanDetail',
+          builder: (context, params) => const DevelopmentPlanDetailWidget(),
+        ),
+        FFRoute(
+          name: 'Feedback_player',
+          path: '/feedbackPlayer',
+          builder: (context, params) => const FeedbackPlayerWidget(),
+        ),
+        FFRoute(
+          name: 'Reflections',
+          path: '/reflections',
+          builder: (context, params) => const ReflectionsWidget(),
+        ),
+        FFRoute(
+          name: 'AskQuestion',
+          path: '/askQuestion',
+          builder: (context, params) => const AskQuestionWidget(),
+        ),
+        FFRoute(
+          name: 'TrainingZone',
+          path: '/trainingZone',
+          builder: (context, params) => const TrainingZoneWidget(),
+        ),
+        FFRoute(
+          name: 'Subscribe',
+          path: '/subscribe',
+          builder: (context, params) => const SubscribeWidget(),
+        ),
+        FFRoute(
+          name: 'Payment',
+          path: '/payment',
+          builder: (context, params) => const PaymentWidget(),
+        ),
+        FFRoute(
+          name: 'MySticker',
+          path: '/mySticker',
+          builder: (context, params) => const MyStickerWidget(),
+        ),
+        FFRoute(
+          name: 'Wheel',
+          path: '/wheel',
+          builder: (context, params) => const WheelWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -154,6 +288,40 @@ extension NavParamExtensions on Map<String, String?> {
 }
 
 extension NavigationExtensions on BuildContext {
+  void goNamedAuth(
+    String name,
+    bool mounted, {
+    Map<String, String> pathParameters = const <String, String>{},
+    Map<String, String> queryParameters = const <String, String>{},
+    Object? extra,
+    bool ignoreRedirect = false,
+  }) =>
+      !mounted || GoRouter.of(this).shouldRedirect(ignoreRedirect)
+          ? null
+          : goNamed(
+              name,
+              pathParameters: pathParameters,
+              queryParameters: queryParameters,
+              extra: extra,
+            );
+
+  void pushNamedAuth(
+    String name,
+    bool mounted, {
+    Map<String, String> pathParameters = const <String, String>{},
+    Map<String, String> queryParameters = const <String, String>{},
+    Object? extra,
+    bool ignoreRedirect = false,
+  }) =>
+      !mounted || GoRouter.of(this).shouldRedirect(ignoreRedirect)
+          ? null
+          : pushNamed(
+              name,
+              pathParameters: pathParameters,
+              queryParameters: queryParameters,
+              extra: extra,
+            );
+
   void safePop() {
     // If there is only one route on the stack, navigate to the initial
     // page instead of popping.
@@ -163,6 +331,19 @@ extension NavigationExtensions on BuildContext {
       go('/');
     }
   }
+}
+
+extension GoRouterExtensions on GoRouter {
+  AppStateNotifier get appState => AppStateNotifier.instance;
+  void prepareAuthEvent([bool ignoreRedirect = false]) =>
+      appState.hasRedirect() && !ignoreRedirect
+          ? null
+          : appState.updateNotifyOnAuthChange(false);
+  bool shouldRedirect(bool ignoreRedirect) =>
+      !ignoreRedirect && appState.hasRedirect();
+  void clearRedirectLocation() => appState.clearRedirectLocation();
+  void setRedirectLocationIfUnset(String location) =>
+      appState.updateNotifyOnAuthChange(false);
 }
 
 extension _GoRouterStateExtensions on GoRouterState {
@@ -212,6 +393,7 @@ class FFParameters {
     String paramName,
     ParamType type, {
     bool isList = false,
+    List<String>? collectionNamePath,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -229,6 +411,7 @@ class FFParameters {
       param,
       type,
       isList,
+      collectionNamePath: collectionNamePath,
     );
   }
 }
@@ -253,6 +436,19 @@ class FFRoute {
   GoRoute toRoute(AppStateNotifier appStateNotifier) => GoRoute(
         name: name,
         path: path,
+        redirect: (context, state) {
+          if (appStateNotifier.shouldRedirect) {
+            final redirectLocation = appStateNotifier.getRedirectLocation();
+            appStateNotifier.clearRedirectLocation();
+            return redirectLocation;
+          }
+
+          if (requireAuth && !appStateNotifier.loggedIn) {
+            appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
+            return '/signIn';
+          }
+          return null;
+        },
         pageBuilder: (context, state) {
           fixStatusBarOniOS16AndBelow(context);
           final ffParams = FFParameters(state, asyncParams);
@@ -262,7 +458,15 @@ class FFRoute {
                   builder: (context, _) => builder(context, ffParams),
                 )
               : builder(context, ffParams);
-          final child = page;
+          final child = appStateNotifier.loading
+              ? Container(
+                  color: FlutterFlowTheme.of(context).info,
+                  child: Image.asset(
+                    'assets/images/logo.jpeg',
+                    fit: BoxFit.contain,
+                  ),
+                )
+              : page;
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

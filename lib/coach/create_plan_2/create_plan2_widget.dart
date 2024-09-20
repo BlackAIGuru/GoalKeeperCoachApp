@@ -6,6 +6,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import 'package:sticky_headers/sticky_headers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'create_plan2_model.dart';
 export 'create_plan2_model.dart';
@@ -109,10 +110,20 @@ class _CreatePlan2WidgetState extends State<CreatePlan2Widget> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.chevronLeft,
-                                      color: FlutterFlowTheme.of(context).info,
-                                      size: 24.0,
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.safePop();
+                                      },
+                                      child: FaIcon(
+                                        FontAwesomeIcons.chevronLeft,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        size: 24.0,
+                                      ),
                                     ),
                                     Expanded(
                                       child: Align(
@@ -143,7 +154,7 @@ class _CreatePlan2WidgetState extends State<CreatePlan2Widget> {
                         ),
                         content: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 15.0, 15.0),
+                              15.0, 0.0, 15.0, 60.0),
                           child: SingleChildScrollView(
                             primary: false,
                             child: Column(
@@ -303,7 +314,7 @@ class _CreatePlan2WidgetState extends State<CreatePlan2Widget> {
                                           _model.dropDownValueController1 ??=
                                               FormFieldController<String>(null),
                                       options: const ['Option 1'],
-                                      onChanged: (val) => setState(
+                                      onChanged: (val) => safeSetState(
                                           () => _model.dropDownValue1 = val),
                                       width: double.infinity,
                                       height: 50.0,
@@ -890,7 +901,7 @@ class _CreatePlan2WidgetState extends State<CreatePlan2Widget> {
                                           _model.dropDownValueController2 ??=
                                               FormFieldController<String>(null),
                                       options: const ['Option 1'],
-                                      onChanged: (val) => setState(
+                                      onChanged: (val) => safeSetState(
                                           () => _model.dropDownValue2 = val),
                                       width: double.infinity,
                                       height: 50.0,
@@ -1162,6 +1173,94 @@ class _CreatePlan2WidgetState extends State<CreatePlan2Widget> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Align(
+                  alignment: const AlignmentDirectional(0.0, 1.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 50.0,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFDBA529),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('Home_Coach');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/Home.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('Message');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/token_chat.svg',
+                              width: 35.0,
+                              height: 35.0,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('TrainingSessions');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/solar_football-outline.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('AllStudents');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/Vector.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

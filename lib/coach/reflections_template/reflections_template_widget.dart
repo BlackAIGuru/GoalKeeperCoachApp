@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:sticky_headers/sticky_headers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reflections_template_model.dart';
 export 'reflections_template_model.dart';
@@ -26,30 +27,33 @@ class _ReflectionsTemplateWidgetState extends State<ReflectionsTemplateWidget> {
     super.initState();
     _model = createModel(context, () => ReflectionsTemplateModel());
 
-    _model.textController1 ??= TextEditingController(
-        text:
-            'Discuss your feelings and thoughts about the experience. \n\nConsider questions such as: \n\n• How did you feel at the time? \n• What did you think at the time? \n• What impact did your emotions, beliefs and values have? ');
+    _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController(
-        text:
-            'How did things go? \n\nFocus on the positive and negative even if it was primarily one or the other. \n\n• What was good and what was bad about the experience? \n• What went well? What didn’t? \n• Were your contributions positive or negative. ');
+    _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.textController3 ??= TextEditingController(
-        text:
-            '• Why did things go well? Badly? \n• How can the theory explain what happened?\n•What might have helped or improved things?');
+    _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    _model.textController4 ??= TextEditingController(
-        text:
-            '•What have you learnt? Generally, and specifically \n• What can I now do better? \n• Could/should you have done anything differently? \n• What skills would I need to handle this better?');
+    _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
 
-    _model.textController5 ??= TextEditingController(
-        text:
-            '•What have you learnt? Generally, and specifically \n• What can I now do better? \n• Could/should you have done anything differently? \n• What skills would I need to handle this better?');
+    _model.textController5 ??= TextEditingController();
     _model.textFieldFocusNode5 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
+          _model.textController1?.text =
+              'Discuss your feelings and thoughts about the experience. \n\nConsider questions such as: \n\n• How did you feel at the time? \n• What did you think at the time? \n• What impact did your emotions, beliefs and values have? ';
+          _model.textController2?.text =
+              'How did things go? \n\nFocus on the positive and negative even if it was primarily one or the other. \n\n• What was good and what was bad about the experience? \n• What went well? What didn’t? \n• Were your contributions positive or negative. ';
+          _model.textController3?.text =
+              '• Why did things go well? Badly? \n• How can the theory explain what happened?\n•What might have helped or improved things?';
+          _model.textController4?.text =
+              '•What have you learnt? Generally, and specifically \n• What can I now do better? \n• Could/should you have done anything differently? \n• What skills would I need to handle this better?';
+          _model.textController5?.text =
+              '•What have you learnt? Generally, and specifically \n• What can I now do better? \n• Could/should you have done anything differently? \n• What skills would I need to handle this better?';
+        }));
   }
 
   @override
@@ -121,10 +125,20 @@ class _ReflectionsTemplateWidgetState extends State<ReflectionsTemplateWidget> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.chevronLeft,
-                                      color: FlutterFlowTheme.of(context).info,
-                                      size: 24.0,
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.safePop();
+                                      },
+                                      child: FaIcon(
+                                        FontAwesomeIcons.chevronLeft,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        size: 24.0,
+                                      ),
                                     ),
                                     Expanded(
                                       child: Align(
@@ -155,7 +169,7 @@ class _ReflectionsTemplateWidgetState extends State<ReflectionsTemplateWidget> {
                         ),
                         content: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 15.0, 15.0),
+                              15.0, 0.0, 15.0, 60.0),
                           child: SingleChildScrollView(
                             primary: false,
                             child: Column(
@@ -175,7 +189,7 @@ class _ReflectionsTemplateWidgetState extends State<ReflectionsTemplateWidget> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Align(
                                           alignment:
@@ -294,7 +308,7 @@ class _ReflectionsTemplateWidgetState extends State<ReflectionsTemplateWidget> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Align(
                                           alignment:
@@ -413,7 +427,7 @@ class _ReflectionsTemplateWidgetState extends State<ReflectionsTemplateWidget> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Align(
                                           alignment:
@@ -532,7 +546,7 @@ class _ReflectionsTemplateWidgetState extends State<ReflectionsTemplateWidget> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Align(
                                           alignment:
@@ -651,7 +665,7 @@ class _ReflectionsTemplateWidgetState extends State<ReflectionsTemplateWidget> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Align(
                                           alignment:
@@ -761,8 +775,8 @@ class _ReflectionsTemplateWidgetState extends State<ReflectionsTemplateWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      context.pushNamed('Feedback_Coach');
                                     },
                                     text: 'Save',
                                     options: FFButtonOptions(
@@ -794,13 +808,101 @@ class _ReflectionsTemplateWidgetState extends State<ReflectionsTemplateWidget> {
                                   ),
                                 ),
                               ]
-                                  .divide(const SizedBox(height: 30.0))
+                                  .divide(const SizedBox(height: 25.0))
                                   .addToStart(const SizedBox(height: 30.0)),
                             ),
                           ),
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Align(
+                  alignment: const AlignmentDirectional(0.0, 1.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 50.0,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFDBA529),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('Home_Coach');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/Home.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('Message');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/token_chat.svg',
+                              width: 35.0,
+                              height: 35.0,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('TrainingSessions');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/solar_football-outline.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('AllStudents');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/Vector.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

@@ -99,10 +99,20 @@ class _MessageWidgetState extends State<MessageWidget> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.chevronLeft,
-                                      color: FlutterFlowTheme.of(context).info,
-                                      size: 24.0,
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.safePop();
+                                      },
+                                      child: FaIcon(
+                                        FontAwesomeIcons.chevronLeft,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        size: 24.0,
+                                      ),
                                     ),
                                     Expanded(
                                       child: Align(
@@ -133,7 +143,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                         ),
                         content: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 15.0, 15.0),
+                              15.0, 0.0, 15.0, 60.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -227,7 +237,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                       iconPadding:
                                           const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
-                                      color: Colors.transparent,
+                                      color: const Color(0x1AFFFFFF),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
@@ -265,7 +275,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                       iconPadding:
                                           const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
-                                      color: Colors.transparent,
+                                      color: const Color(0x1AFFFFFF),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
@@ -303,7 +313,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                       iconPadding:
                                           const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
-                                      color: Colors.transparent,
+                                      color: const Color(0x1AFFFFFF),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
@@ -345,6 +355,8 @@ class _MessageWidgetState extends State<MessageWidget> {
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
@@ -776,40 +788,76 @@ class _MessageWidgetState extends State<MessageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/Home.svg',
-                            width: 30.0,
-                            height: 30.0,
-                            fit: BoxFit.contain,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('Home_Coach');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/Home.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/token_chat.svg',
-                            width: 35.0,
-                            height: 35.0,
-                            fit: BoxFit.contain,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('Message');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/token_chat.svg',
+                              width: 35.0,
+                              height: 35.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/solar_football-outline.svg',
-                            width: 30.0,
-                            height: 30.0,
-                            fit: BoxFit.contain,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('TrainingSessions');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/solar_football-outline.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/Vector.svg',
-                            width: 30.0,
-                            height: 30.0,
-                            fit: BoxFit.contain,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('AllStudents');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/Vector.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
                       ],

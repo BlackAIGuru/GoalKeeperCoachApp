@@ -1,4 +1,4 @@
-package com.mycompany.coach
+package com.mycompany.creativekeepers
 
 import io.flutter.embedding.android.FlutterActivity
 

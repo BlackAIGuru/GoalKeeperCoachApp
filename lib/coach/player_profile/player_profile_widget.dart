@@ -89,15 +89,24 @@ class _PlayerProfileWidgetState extends State<PlayerProfileWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                FaIcon(
-                                  FontAwesomeIcons.chevronLeft,
-                                  color: FlutterFlowTheme.of(context).info,
-                                  size: 24.0,
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.safePop();
+                                  },
+                                  child: FaIcon(
+                                    FontAwesomeIcons.chevronLeft,
+                                    color: FlutterFlowTheme.of(context).info,
+                                    size: 24.0,
+                                  ),
                                 ),
                                 Flexible(
                                   child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      context.pushNamed('EmergencyContact');
                                     },
                                     text: 'Emergency Contact',
                                     options: FFButtonOptions(
@@ -420,46 +429,57 @@ class _PlayerProfileWidgetState extends State<PlayerProfileWidget> {
                                     ],
                                   ),
                                 ),
-                                Container(
-                                  width: double.infinity,
-                                  height: 75.0,
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xFF222232),
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                  child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 0.0, 20.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            'Give Sticker',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Colors.white,
-                                                  fontSize: 13.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                          ),
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: SvgPicture.asset(
-                                              'assets/images/glove.svg',
-                                              width: 38.0,
-                                              height: 38.0,
-                                              fit: BoxFit.contain,
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('Stickers');
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 75.0,
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xFF222232),
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                    child: Align(
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            20.0, 0.0, 20.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              'Give Sticker',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                        fontSize: 13.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
                                             ),
-                                          ),
-                                        ],
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: SvgPicture.asset(
+                                                'assets/images/glove.svg',
+                                                width: 38.0,
+                                                height: 38.0,
+                                                fit: BoxFit.contain,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -471,8 +491,8 @@ class _PlayerProfileWidgetState extends State<PlayerProfileWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
+                                        onPressed: () async {
+                                          context.pushNamed('Feedback_Coach');
                                         },
                                         text: 'FEEDBACK',
                                         options: FFButtonOptions(
@@ -504,8 +524,8 @@ class _PlayerProfileWidgetState extends State<PlayerProfileWidget> {
                                         ),
                                       ),
                                       FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
+                                        onPressed: () async {
+                                          context.pushNamed('Message');
                                         },
                                         text: 'MESSAGE',
                                         options: FFButtonOptions(
@@ -537,8 +557,8 @@ class _PlayerProfileWidgetState extends State<PlayerProfileWidget> {
                                         ),
                                       ),
                                       FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
+                                        onPressed: () async {
+                                          context.pushNamed('DevelopmentPlan');
                                         },
                                         text: 'DEVELOPMENT PLANS',
                                         options: FFButtonOptions(
@@ -594,40 +614,76 @@ class _PlayerProfileWidgetState extends State<PlayerProfileWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/Home.svg',
-                            width: 30.0,
-                            height: 30.0,
-                            fit: BoxFit.contain,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('Home_Coach');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/Home.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/token_chat.svg',
-                            width: 35.0,
-                            height: 35.0,
-                            fit: BoxFit.contain,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('Message');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/token_chat.svg',
+                              width: 35.0,
+                              height: 35.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/solar_football-outline.svg',
-                            width: 30.0,
-                            height: 30.0,
-                            fit: BoxFit.contain,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('TrainingSessions');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/solar_football-outline.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/Vector.svg',
-                            width: 30.0,
-                            height: 30.0,
-                            fit: BoxFit.contain,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('AllStudents');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/Vector.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
                       ],

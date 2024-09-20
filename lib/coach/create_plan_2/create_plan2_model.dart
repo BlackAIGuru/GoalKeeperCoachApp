@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class CreatePlan2Model extends FlutterFlowModel<CreatePlan2Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;

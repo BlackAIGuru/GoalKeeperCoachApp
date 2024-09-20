@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -22,7 +23,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
     super.initState();
     _model = createModel(context, () => ForgotPasswordModel());
 
-    _model.textController ??= TextEditingController();
+    _model.emailTextController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
   }
 
@@ -141,7 +142,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 7.0, 0.0, 0.0),
                               child: TextFormField(
-                                controller: _model.textController,
+                                controller: _model.emailTextController,
                                 focusNode: _model.textFieldFocusNode,
                                 autofocus: true,
                                 obscureText: false,
@@ -202,7 +203,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                     ),
                                 keyboardType: TextInputType.emailAddress,
                                 cursorColor: FlutterFlowTheme.of(context).info,
-                                validator: _model.textControllerValidator
+                                validator: _model.emailTextControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -213,8 +214,21 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 90.0, 0.0, 0.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            if (_model.emailTextController.text.isEmpty) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                    'Email required!',
+                                  ),
+                                ),
+                              );
+                              return;
+                            }
+                            await authManager.resetPassword(
+                              email: _model.emailTextController.text,
+                              context: context,
+                            );
                           },
                           text: 'RESET PASSWORD',
                           options: FFButtonOptions(
@@ -268,14 +282,24 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                 ),
                           ),
                         ),
-                        Text(
-                          'Login',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
-                                    color: const Color(0xFFDBA529),
-                                    letterSpacing: 0.0,
-                                  ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('SignIn');
+                          },
+                          child: Text(
+                            'Login',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color: const Color(0xFFDBA529),
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
                         ),
                       ],
                     ),

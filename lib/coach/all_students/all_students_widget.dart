@@ -1,4 +1,4 @@
-import '/components/students_widget.dart';
+import '/component/students/students_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
@@ -99,10 +99,20 @@ class _AllStudentsWidgetState extends State<AllStudentsWidget> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.chevronLeft,
-                                      color: FlutterFlowTheme.of(context).info,
-                                      size: 24.0,
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.safePop();
+                                      },
+                                      child: FaIcon(
+                                        FontAwesomeIcons.chevronLeft,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        size: 24.0,
+                                      ),
                                     ),
                                     Expanded(
                                       child: Align(
@@ -218,7 +228,7 @@ class _AllStudentsWidgetState extends State<AllStudentsWidget> {
                                     width: 92.0,
                                     height: 27.0,
                                     decoration: BoxDecoration(
-                                      color: const Color(0x19FFFFFF),
+                                      color: const Color(0x1AFFFFFF),
                                       boxShadow: const [
                                         BoxShadow(
                                           blurRadius: 8.0,
@@ -256,7 +266,7 @@ class _AllStudentsWidgetState extends State<AllStudentsWidget> {
                                     width: 92.0,
                                     height: 27.0,
                                     decoration: BoxDecoration(
-                                      color: const Color(0x19FFFFFF),
+                                      color: const Color(0x1AFFFFFF),
                                       boxShadow: const [
                                         BoxShadow(
                                           blurRadius: 8.0,
@@ -294,7 +304,7 @@ class _AllStudentsWidgetState extends State<AllStudentsWidget> {
                                     width: 92.0,
                                     height: 27.0,
                                     decoration: BoxDecoration(
-                                      color: const Color(0x19FFFFFF),
+                                      color: const Color(0x1AFFFFFF),
                                       boxShadow: const [
                                         BoxShadow(
                                           blurRadius: 8.0,
@@ -373,7 +383,7 @@ class _AllStudentsWidgetState extends State<AllStudentsWidget> {
                                   children: [
                                     wrapWithModel(
                                       model: _model.studentsModel,
-                                      updateCallback: () => setState(() {}),
+                                      updateCallback: () => safeSetState(() {}),
                                       child: const StudentsWidget(),
                                     ),
                                   ].divide(const SizedBox(height: 20.0)),
@@ -400,40 +410,76 @@ class _AllStudentsWidgetState extends State<AllStudentsWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/Home.svg',
-                            width: 30.0,
-                            height: 30.0,
-                            fit: BoxFit.contain,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('Home_Coach');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/Home.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/token_chat.svg',
-                            width: 35.0,
-                            height: 35.0,
-                            fit: BoxFit.contain,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('Message');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/token_chat.svg',
+                              width: 35.0,
+                              height: 35.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/solar_football-outline.svg',
-                            width: 30.0,
-                            height: 30.0,
-                            fit: BoxFit.contain,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('TrainingSessions');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/solar_football-outline.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/Vector.svg',
-                            width: 30.0,
-                            height: 30.0,
-                            fit: BoxFit.contain,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('AllStudents');
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/Vector.svg',
+                              width: 30.0,
+                              height: 30.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
                       ],

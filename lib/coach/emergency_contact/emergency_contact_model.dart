@@ -1,4 +1,4 @@
-import '/components/contracts_widget.dart';
+import '/component/contracts/contracts_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'emergency_contact_widget.dart' show EmergencyContactWidget;
 import 'package:flutter/material.dart';
@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class EmergencyContactModel extends FlutterFlowModel<EmergencyContactWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for contracts component.
   late ContractsModel contractsModel;
 
